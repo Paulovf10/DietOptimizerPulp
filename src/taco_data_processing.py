@@ -1,6 +1,6 @@
-from taco_data_source import TacoDataSource
+from src.taco_data_source import TacoDataSource
 import pandas as pd
-
+import numpy as np
 
 class TacoDataProcessing:
     """
@@ -10,42 +10,35 @@ class TacoDataProcessing:
         data_source (TacoDataSource): Uma instância da classe TacoDataSource para acessar os dados.
     """
 
-    def __init__(self, filepath):
+    def __init__(self, data):
         """
         Inicializa a classe com uma instância da TacoDataSource.
 
         Args:
             filepath (str): O caminho para o arquivo Excel da Tabela TACO.
         """
-        self.data_source = TacoDataSource(filepath)
-
-    def clean_data(self):
-        """
-        Realiza a limpeza dos dados, como tratar valores ausentes e remover duplicatas.
-
-        Returns:
-            pd.DataFrame: Um DataFrame com os dados limpos.
-        """
-        df = self.data_source.dataframe
-        # Exemplo: remover linhas com valores ausentes
-        df_clean = df.dropna()
-        # Exemplo: remover duplicatas
-        df_clean = df_clean.drop_duplicates()
-        self.data_source.dataframe = df_clean
-        return df_clean
+        self.data_source = data
 
     def normalize_data(self):
         """
         Normaliza ou padroniza os dados, se necessário.
 
         Returns:
-            pd.DataFrame: Um DataFrame com os dados normalizados.
+            dict: Um dicionário com os dados normalizados.
         """
-        # Implemente a normalização/padronização conforme necessário
-        # Este é apenas um placeholder para ilustrar onde você faria isso.
-        df_normalized = self.data_source.dataframe
+        df_normalized = {
+            'id': [int(x) for x in self.data_source['Número'].tolist()],
+            'grupo': self.data_source['Grupo'].tolist(),
+            'descricao': self.data_source['Descrição do Alimento'].tolist(),
+            'kcal': [float(x) if not (isinstance(x, str) or np.isnan(x)) else 0.0 for x in
+                     self.data_source['Energia(kcal)'].tolist()],
+            'carboidratos': [float(x) if not (isinstance(x, str) or np.isnan(x)) else 0.0 for x in
+                             self.data_source['Carboidrato(g)'].tolist()],
+            'proteina': [float(x) if not (isinstance(x, str) or np.isnan(x)) else 0.0 for x in
+                         self.data_source['Proteína(g)'].tolist()],
+            'VitaminaC': [float(x) if not (isinstance(x, str) or np.isnan(x)) else 0.0 for x in
+                          self.data_source['VitaminaC(mg)'].tolist()],
+            'ferro': [float(x) if not (isinstance(x, str) or np.isnan(x)) else 0.0 for x in
+                      self.data_source['Ferro(mg)'].tolist()],
+        }
         return df_normalized
-
-
-
-

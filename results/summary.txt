@@ -1,0 +1,24 @@
+Introdução ao Resumo da Dieta Otimizada
+Este documento apresenta um resumo da dieta otimizada com base em suas preferências e necessidades nutricionais.
+
+Resumo da Dieta Otimizada:
+Para o horário das 8:00, consuma:
+ - Leite, de vaca, desnatado, UHT: 1.0 gramas
+ - Ovo, de galinha, clara, cozida/10minutos: 1.0 gramas
+
+Para o horário das 12:00, consuma:
+ - Curau, milho verde: 1.0 gramas
+ - Margarina, com óleo interesterificado, sem sal (65% de lipídeos): 1.3490861 gramas
+ - Ovo, de galinha, clara, cozida/10minutos: 1.0 gramas
+ - Abobrinha, italiana, cozida: 0.30620041 gramas
+ - Alface, roxa, crua: 0.69379959 gramas
+ - Toucinho, cru: 2.7805824 gramas
+
+Para o horário das 15:00, consuma:
+ - Pitanga, polpa, congelada: 1.0 gramas
+ - Leite, de vaca, desnatado, UHT: 1.0 gramas
+
+Para o horário das 20:00, consuma:
+ - Leite, de coco: 1.0 gramas
+ - Cana, aguardente 1: 1.0 gramas
+

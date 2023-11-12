@@ -1,5 +1,5 @@
 import pandas as pd
-
+from src.taco_data_processing import TacoDataProcessing
 
 class TacoDatabase:
     """
@@ -21,6 +21,9 @@ class TacoDatabase:
         """
         self.db_path = db_path
         self.dataframe = self.load_data()
+        self.data_processor = None
+        self.data_proces= None
+
 
     def load_data(self):
         """
@@ -46,17 +49,8 @@ class TacoDatabase:
         Returns:
             pd.DataFrame: O DataFrame carregado com os dados processados.
         """
-        return self.dataframe
+        self.data_processor = TacoDataProcessing(self.dataframe)
+        self.data_proces = self.data_processor.normalize_data()
 
+        return self.data_proces
 
-
-"""# Caminho para o arquivo de dados processados
-db_path = '../data/Taco.xlsx'
-
-# Criação da instância de TacoDatabase
-taco_db = TacoDatabase(db_path)
-
-# Acessando dados processados
-dados_processados = taco_db.get_data()
-print(dados_processados.head())  # Exibe as primeiras linhas dos dados processados
-"""
